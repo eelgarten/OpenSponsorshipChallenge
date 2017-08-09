@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Player Registration</title>
+</head>
+<body>
+    <div class="container col-md-5" ng-controller="UserInfoCtrl">
+
+        <h2>Player Registration</h2>
+        <h3 ng-show="step == 1">Personal Info</h3>
+        <h3 ng-show="step == 2">About</h3>
+        <h3 ng-show="step == 3">Social Media</h3>
+        <h3 ng-show="step == 4">Summary</h3>
+
+        <fieldset ng-show="step == 1">
+        <table class="table">
+            <tbody>
+
+                <tr>
+                    <td>Name</td>
+                    <td><input class='form-control' type="text" ng-model="player.name" required></td>
+                </tr>
+
+                <tr>
+                    <td>Sport(s)</td>
+                    <td><input class='form-control' type="text" ng-model="player.sport" required></td>
+                </tr>
+
+                <tr>
+                    <td>Nationality</td>
+                    <td><input class='form-control' type="text" ng-model="player.nationality" required></td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td><input class='form-control' type="text" ng-model="player.gender" required></td>
+                </tr>
+
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input class='form-control' type="date" ng-model="player.dob" required></td>
+                </tr>
+
+            </tbody>
+        </table>
+            <button class="btn btn-primary" ng-click="nextStep()">Next</button>
+        </fieldset>
+
+        <fieldset ng-show="step == 2">
+            <table class="table">
+                <tbody>
+
+                <tr>
+                    <td>Location</td>
+                    <td><input class='form-control' type="text" ng-model="player.location"></td>
+                </tr>
+                <tr>
+                    <td>Team</td>
+                    <td><input class='form-control' type="text" ng-model="player.team"></td>
+                </tr>
+                <tr>
+                    <td>Association/League</td>
+                    <td><input class='form-control' type="text" ng-model="player.association"></td>
+                </tr>
+                <tr>
+                    <td>Interests</td>
+                    <td><input class='form-control' type="text" ng-model="player.interests"></td>
+                </tr>
+                <tr>
+                    <td>Drinks alcohol?</td>
+                    <td><input class='form-control' type="checkbox" ng-model="player.drinksAlcohol" ng-init="player.drinksAlcohol = false"></td>
+                </tr>
+                <tr>
+                    <td>Married?</td>
+                    <td><input class='form-control' type="checkbox" ng-model="player.married" ng-init="player.married = false"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><textarea class='form-control' ng-model="player.description"></textarea></td>
+                </tr>
+
+                </tbody>
+            </table>
+            <button class="btn btn-primary" ng-click="prevStep()">Previous</button>
+            <button class="btn btn-primary" ng-click="nextStep()">Next</button>
+        </fieldset>
+
+        <fieldset ng-show="step == 3">
+            <table class="table">
+                <tbody>
+
+                <tr>
+                    <td>Instagram</td>
+                    <td><input class='form-control' type="text" ng-model="player.instagram"></td>
+                </tr>
+                <tr>
+                    <td>Twitter</td>
+                    <td><input class='form-control' type="text" ng-model="player.twitter"></td>
+                </tr>
+
+                </tbody>
+            </table>
+            <button class="btn btn-primary" ng-click="prevStep()">Previous</button>
+            <button class="btn btn-primary" ng-click="nextStep()">Next</button>
+        </fieldset>
+
+        <fieldset ng-show="step == 4">
+            <span>Name: {{player.name}}</span></br>
+            <span>Sport(s): {{player.sport}}</span></br>
+            <span>Nationality: {{player.nationality}}</span></br>
+            <span>Gender: {{player.gender}}</span></br>
+            <span>Date of Birth: {{player.dob}}</span></br>
+            <span>Location: {{player.location}}</span></br>
+            <span>Team: {{player.team}}</span></br>
+            <span>Association/League: {{player.association}}</span></br>
+            <span>Drinks alcohol?: {{player.drinksAlcohol}}</span></br>
+            <span>Married?: {{player.married}}</span></br>
+            <span>Instagram: {{player.instagram}}</span></br>
+            <span>Twitter: {{player.twitter}}</span></br>
+
+            <button class="btn btn-primary" ng-click="prevStep()">Previous</button>
+            <button class="btn btn-primary" ng-click="savePlayerInfo()">Submit</button>
+        </fieldset>
+
+        <fieldset ng-show="step == 5">
+            <span>New user saved. </span></br>
+
+            <button class="btn btn-primary" ng-click="resetPlayerForm()">Add another user</button>
+        </fieldset>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+</body>
+</html>

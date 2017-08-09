@@ -1,0 +1,12 @@
+{
+  "name": "opensponsorship",
+  "version": "1.0.0",
+  "description": "\"Coding challenge\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Elias Elgarten",
+  "license": "ISC"
+}
